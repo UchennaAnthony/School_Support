@@ -1,0 +1,10 @@
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\SchoolSupport.Model.dll.config
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\SchoolSupport.Model.dll
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\SchoolSupport.Model.pdb
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\EntityFramework.dll
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\EntityFramework.xml
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\obj\Debug\SchoolSupport.Model.dll
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\obj\Debug\SchoolSupport.Model.pdb
+C:\Users\bebe\Documents\Visual Studio 2013\Projects\School_Support\SchoolSupport.Model\obj\Debug\SchoolSupport.Model.csprojResolveAssemblyReference.cache

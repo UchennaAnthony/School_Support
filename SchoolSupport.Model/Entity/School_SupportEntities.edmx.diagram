@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="380c86043b424ffabced9baf7ff8beaf" Name="Diagram1">
+        <EntityTypeShape EntityType="School_SupportModel.DEPARTMENT" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.FACULTY" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.PROGRAMME" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.SCHOOL" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.SESSION" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.SEX" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_SupportModel.USER" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="School_SupportModel.FK_DEPARTMENT_FACULTY" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="School_SupportModel.ROLE" Width="1.5" PointX="1" PointY="0.875" />
+        <AssociationConnector Association="School_SupportModel.FK_USER_ROLE" />
+        <EntityTypeShape EntityType="School_SupportModel.STUDENT_CATEGORY" Width="1.5" PointX="8.375" PointY="0.875" />
+        <EntityTypeShape EntityType="School_SupportModel.DEPARTMENT_OPTION" Width="1.5" PointX="8.25" PointY="9.625" />
+        <AssociationConnector Association="School_SupportModel.FK_DEPARTMENT_OPTION_DEPARTMENT" />
+        <EntityTypeShape EntityType="School_SupportModel.SECURITY_QUESTION" Width="1.5" PointX="7.375" PointY="4.875" />
+        <AssociationConnector Association="School_SupportModel.FK_USER_SECURITY_QUESTION" />
+        <EntityTypeShape EntityType="School_SupportModel.LEVEL" Width="1.5" PointX="10.375" PointY="0.875" />
+        <EntityTypeShape EntityType="School_SupportModel.PERSON" Width="1.5" PointX="3" PointY="5.125" />
+        <AssociationConnector Association="School_SupportModel.FK_PERSON_SEX" />
+        <AssociationConnector Association="School_SupportModel.FK_USER_PERSON" />
+        <EntityTypeShape EntityType="School_SupportModel.STUDENT_LEVEL" Width="1.5" PointX="15.875" PointY="9" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT_OPTION" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_LEVEL" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_PROGRAMME" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_SESSION" />
+        <EntityTypeShape EntityType="School_SupportModel.STUDENT" Width="1.5" PointX="10.625" PointY="4.5" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_PERSON" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_SCHOOL" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_LEVEL_STUDENT" />
+        <AssociationConnector Association="School_SupportModel.FK_STUDENT_STUDENT_CATEGORY" />
+        <EntityTypeShape EntityType="School_SupportModel.TICKET" Width="1.5" PointX="12.875" PointY="4.75" />
+        <AssociationConnector Association="School_SupportModel.FK_TICKET_STUDENT" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

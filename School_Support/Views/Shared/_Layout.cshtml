@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("School Support", "Index", "Home", new { area = "Common" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Reply", "ViewReply", new { Controller = "Ticket", Area = "Common" })</li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li>@Html.ActionLink("View Complaints", "Index", "Support", new { Area = "Admin" }, null)</li>
+                            <li>@Html.ActionLink("Reply Complaints", "Index", "Support", new { Area = "Admin" }, null)</li>
+                            <li>@Html.ActionLink("View Complaints By Date", "GetTicketDetailsByDate", "Support", new { Area = "Admin" }, null)</li>
+
+                            <li class="divider"></li>
+
+                            <li>@Html.ActionLink("View Student Details", "", "", new { Area = "" }, null)</li>
+                            </ul>
+                    </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <blockquote class="blockquote-reverse">
+                <p>Tell us your Problems and we will solve them</p>
+                <small>Powered by <cite title="Source Title">LLOYDANT</cite></small>
+            </blockquote>
+            <p>&copy; @DateTime.Now.Year - School Support Services</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

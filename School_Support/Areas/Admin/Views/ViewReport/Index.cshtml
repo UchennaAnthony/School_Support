@@ -1,0 +1,94 @@
+﻿@model School_Support.Areas.Admin.ViewModels.SupportViewModel
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
+<br/><br/>
+<a href='@Url.Action("ExportToExcel", "ViewReport")'>
+    <img src='@Url.Content("~/Content/Images/if_Export_46735.png")' />
+</a>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-fw fa-users"></i>Report</h3>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-responsive table-bordered table-striped table-hover">
+            <tr>
+                <th>
+                    Ticket Number
+                </th>
+                <th>
+                    Matric Number
+                </th>
+                <th>
+                    Complain
+                </th>
+                <th>
+                    Reply
+                </th>
+                <th>
+                    Time Submitted
+                </th>
+                <th>
+                    Time Replied
+                </th>
+
+            </tr>
+
+
+            @for (int i = 0; i < Model.Tickets.Count; i++)
+            {
+                <tr>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.Tickets[i].TicketNumber
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.StudentList[i].MatricNumber
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.Tickets[i].Complain
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.Tickets[i].Reply
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.Tickets[i].TimeSubmitted
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3">
+                        @Model.Tickets[i].TimeReplied
+                    </td>
+
+
+                </tr>
+
+            }
+            @*@for (int i = 0; i < Model.StudentList.Count; i++)
+                {
+                <tr>
+
+                </tr>
+                }*@
+
+        </table>
+
+    </div>
+</div>
+
+@*$(document).ready(function() {
+    $('#example').DataTable( {
+    dom: 'Bfrtip',
+    buttons: [
+    'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+    } );
+    } );*@

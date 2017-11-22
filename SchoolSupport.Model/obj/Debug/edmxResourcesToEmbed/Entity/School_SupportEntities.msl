@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="School_SupportModelStoreContainer" CdmEntityContainer="School_SupportEntities">
+    <EntitySetMapping Name="DEPARTMENT">
+      <EntityTypeMapping TypeName="School_SupportModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Department_Code" ColumnName="Department_Code" />
+          <ScalarProperty Name="Faculty_Id" ColumnName="Faculty_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACULTY">
+      <EntityTypeMapping TypeName="School_SupportModel.FACULTY">
+        <MappingFragment StoreEntitySet="FACULTY">
+          <ScalarProperty Name="Faculty_Id" ColumnName="Faculty_Id" />
+          <ScalarProperty Name="Faculty_Name" ColumnName="Faculty_Name" />
+          <ScalarProperty Name="Faculty_Description" ColumnName="Faculty_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROGRAMME">
+      <EntityTypeMapping TypeName="School_SupportModel.PROGRAMME">
+        <MappingFragment StoreEntitySet="PROGRAMME">
+          <ScalarProperty Name="Programme_Id" ColumnName="Programme_Id" />
+          <ScalarProperty Name="Programme_Name" ColumnName="Programme_Name" />
+          <ScalarProperty Name="Programme_Description" ColumnName="Programme_Description" />
+          <ScalarProperty Name="Programme_Short_Name" ColumnName="Programme_Short_Name" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SCHOOL">
+      <EntityTypeMapping TypeName="School_SupportModel.SCHOOL">
+        <MappingFragment StoreEntitySet="SCHOOL">
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="School_Short_Code" ColumnName="School_Short_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESSION">
+      <EntityTypeMapping TypeName="School_SupportModel.SESSION">
+        <MappingFragment StoreEntitySet="SESSION">
+          <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+          <ScalarProperty Name="Session_Name" ColumnName="Session_Name" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEX">
+      <EntityTypeMapping TypeName="School_SupportModel.SEX">
+        <MappingFragment StoreEntitySet="SEX">
+          <ScalarProperty Name="Sex_Id" ColumnName="Sex_Id" />
+          <ScalarProperty Name="Sex_Name" ColumnName="Sex_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER">
+      <EntityTypeMapping TypeName="School_SupportModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Security_Question_Id" ColumnName="Security_Question_Id" />
+          <ScalarProperty Name="Security_Answer" ColumnName="Security_Answer" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLE">
+      <EntityTypeMapping TypeName="School_SupportModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENT_CATEGORY">
+      <EntityTypeMapping TypeName="School_SupportModel.STUDENT_CATEGORY">
+        <MappingFragment StoreEntitySet="STUDENT_CATEGORY">
+          <ScalarProperty Name="Student_Category_Description" ColumnName="Student_Category_Description" />
+          <ScalarProperty Name="Student_Category_Name" ColumnName="Student_Category_Name" />
+          <ScalarProperty Name="Student_Category_Id" ColumnName="Student_Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENT_OPTION">
+      <EntityTypeMapping TypeName="School_SupportModel.DEPARTMENT_OPTION">
+        <MappingFragment StoreEntitySet="DEPARTMENT_OPTION">
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="Department_Otion_Name" ColumnName="Department_Otion_Name" />
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+          <ScalarProperty Name="Department_Option_Id" ColumnName="Department_Option_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SECURITY_QUESTION">
+      <EntityTypeMapping TypeName="School_SupportModel.SECURITY_QUESTION">
+        <MappingFragment StoreEntitySet="SECURITY_QUESTION">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Security_Question_Id" ColumnName="Security_Question_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LEVEL">
+      <EntityTypeMapping TypeName="School_SupportModel.LEVEL">
+        <MappingFragment StoreEntitySet="LEVEL">
+          <ScalarProperty Name="Level_Description" ColumnName="Level_Description" />
+          <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+          <ScalarProperty Name="Level_Id" ColumnName="Level_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSON">
+      <EntityTypeMapping TypeName="School_SupportModel.PERSON">
+        <MappingFragment StoreEntitySet="PERSON">
+          <ScalarProperty Name="Mobile_Phone" ColumnName="Mobile_Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sex_Id" ColumnName="Sex_Id" />
+          <ScalarProperty Name="Other_Name" ColumnName="Other_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENT_LEVEL">
+      <EntityTypeMapping TypeName="School_SupportModel.STUDENT_LEVEL">
+        <MappingFragment StoreEntitySet="STUDENT_LEVEL">
+          <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+          <ScalarProperty Name="Department_Option_Id" ColumnName="Department_Option_Id" />
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+          <ScalarProperty Name="Programme_Id" ColumnName="Programme_Id" />
+          <ScalarProperty Name="Level_Id" ColumnName="Level_Id" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+          <ScalarProperty Name="Student_Level_Id" ColumnName="Student_Level_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENT">
+      <EntityTypeMapping TypeName="School_SupportModel.STUDENT">
+        <MappingFragment StoreEntitySet="STUDENT">
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Student_Category_Id" ColumnName="Student_Category_Id" />
+          <ScalarProperty Name="School_Contact_Address" ColumnName="School_Contact_Address" />
+          <ScalarProperty Name="Matric_Number" ColumnName="Matric_Number" />
+          <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+          <ScalarProperty Name="Application_Form_Number" ColumnName="Application_Form_Number" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKET">
+      <EntityTypeMapping TypeName="School_SupportModel.TICKET">
+        <MappingFragment StoreEntitySet="TICKET">
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="Date_Replied" ColumnName="Date_Replied" />
+          <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+          <ScalarProperty Name="Reply" ColumnName="Reply" />
+          <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+          <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+          <ScalarProperty Name="Ticket_Number" ColumnName="Ticket_Number" />
+          <ScalarProperty Name="Ticket_Serial_Number" ColumnName="Ticket_Serial_Number" />
+          <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

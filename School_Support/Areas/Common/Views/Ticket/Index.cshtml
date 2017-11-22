@@ -1,0 +1,67 @@
+﻿@model School_Support.Areas.Common.ViewModels.TicketViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        @TempData["Msg"].ToString()
+    </div>
+} <center><h2>Submit Your Complaints Here</h2></center>
+
+@using (Html.BeginForm("Create", "Ticket", new { id = Model.SchoolId }, FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+  
+    <div class="form-horizontal">
+        <fieldset>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Student.MatricNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Student.MatricNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Student.MatricNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ticket.Complain, htmlAttributes: new { @class = "control-label col-lg-2" })
+                <div class="col-lg-10">
+                    @Html.TextAreaFor(e => e.Ticket.Complain, 19, 71, null)
+                    @*@Html.TextAreaFor(model => model.Ticket.Complain, new { htmlAttributes = new { @class = "form-control", rows = "3" } })*@
+                    @Html.ValidationMessageFor(model => model.Ticket.Complain, "", new { @class = "text-danger" })
+                    <span class="help-block">Enter or Type In your complain Above.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />@*data-toggle="modal" data-target="#myModal"*@ 
+                </div>
+            </div>
+        </fieldset>
+        </div>
+    //<div class="modal fade" id="myModal" role="dialog">
+       // <div class="modal-dialog">
+
+            <!-- Modal content-->
+            //<div class="modal-content">
+                //<div class="modal-header">
+                    //<button type="button" class="close" data-dismiss="modal">&times;</button>
+                   // <h4 class="modal-title">Modal Header</h4>
+              //  </div>
+              //  <div class="modal-body">
+              //      <p>Some text in the modal.</p>
+              //  </div>
+              //  <div class="modal-footer">
+              //      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              //  </div>
+           // </div>
+
+       // </div>
+   // </div>
+
+}
+

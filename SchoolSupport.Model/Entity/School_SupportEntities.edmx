@@ -1,0 +1,1102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="School_SupportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="Department_Id" />
+          </Key>
+          <Property Name="Department_Id" Type="int" Nullable="false" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department_Code" Type="varchar" MaxLength="3" />
+          <Property Name="Faculty_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT_OPTION">
+          <Key>
+            <PropertyRef Name="Department_Option_Id" />
+          </Key>
+          <Property Name="Department_Option_Id" Type="int" Nullable="false" />
+          <Property Name="Department_Id" Type="int" Nullable="false" />
+          <Property Name="Department_Otion_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACULTY">
+          <Key>
+            <PropertyRef Name="Faculty_Id" />
+          </Key>
+          <Property Name="Faculty_Id" Type="int" Nullable="false" />
+          <Property Name="Faculty_Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Faculty_Description" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="LEVEL">
+          <Key>
+            <PropertyRef Name="Level_Id" />
+          </Key>
+          <Property Name="Level_Id" Type="int" Nullable="false" />
+          <Property Name="Level_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Level_Description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Other_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Sex_Id" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile_Phone" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PROGRAMME">
+          <Key>
+            <PropertyRef Name="Programme_Id" />
+          </Key>
+          <Property Name="Programme_Id" Type="int" Nullable="false" />
+          <Property Name="Programme_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Programme_Description" Type="varchar" MaxLength="250" />
+          <Property Name="Programme_Short_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Activated" Type="bit" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="int" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SCHOOL">
+          <Key>
+            <PropertyRef Name="School_Id" />
+          </Key>
+          <Property Name="School_Id" Type="int" Nullable="false" />
+          <Property Name="School_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="School_Short_Code" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="SECURITY_QUESTION">
+          <Key>
+            <PropertyRef Name="Security_Question_Id" />
+          </Key>
+          <Property Name="Security_Question_Id" Type="int" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESSION">
+          <Key>
+            <PropertyRef Name="Session_Id" />
+          </Key>
+          <Property Name="Session_Id" Type="int" Nullable="false" />
+          <Property Name="Session_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start_Date" Type="datetime" Nullable="false" />
+          <Property Name="End_Time" Type="datetime" Nullable="false" />
+          <Property Name="Activated" Type="bit" />
+        </EntityType>
+        <EntityType Name="SEX">
+          <Key>
+            <PropertyRef Name="Sex_Id" />
+          </Key>
+          <Property Name="Sex_Id" Type="int" Nullable="false" />
+          <Property Name="Sex_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="bigint" Nullable="false" />
+          <Property Name="Application_Form_Number" Type="varchar" MaxLength="100" />
+          <Property Name="Student_Number" Type="bigint" />
+          <Property Name="Matric_Number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="School_Contact_Address" Type="varchar" MaxLength="150" />
+          <Property Name="Student_Category_Id" Type="int" />
+          <Property Name="School_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="STUDENT_CATEGORY">
+          <Key>
+            <PropertyRef Name="Student_Category_Id" />
+          </Key>
+          <Property Name="Student_Category_Id" Type="int" Nullable="false" />
+          <Property Name="Student_Category_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_Category_Description" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="STUDENT_LEVEL">
+          <Key>
+            <PropertyRef Name="Student_Level_Id" />
+          </Key>
+          <Property Name="Student_Level_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person_Id" Type="bigint" Nullable="false" />
+          <Property Name="Level_Id" Type="int" />
+          <Property Name="Programme_Id" Type="int" />
+          <Property Name="Department_Id" Type="int" Nullable="false" />
+          <Property Name="Department_Option_Id" Type="int" />
+          <Property Name="Session_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="Ticket_Id" />
+          </Key>
+          <Property Name="Ticket_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ticket_Serial_Number" Type="int" />
+          <Property Name="Ticket_Number" Type="varchar" MaxLength="50" />
+          <Property Name="Person_Id" Type="bigint" Nullable="false" />
+          <Property Name="Complaint" Type="varchar(max)" Nullable="false" />
+          <Property Name="Reply" Type="varchar(max)" />
+          <Property Name="Date_Submitted" Type="date" Nullable="false" />
+          <Property Name="Date_Replied" Type="date" />
+          <Property Name="Activated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Person_Id" Type="bigint" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Security_Question_Id" Type="int" Nullable="false" />
+          <Property Name="Security_Answer" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Role_Id" Type="int" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DEPARTMENT_FACULTY">
+          <End Role="FACULTY" Type="Self.FACULTY" Multiplicity="0..1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTY">
+              <PropertyRef Name="Faculty_Id" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Faculty_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTMENT_OPTION_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="DEPARTMENT_OPTION" Type="Self.DEPARTMENT_OPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Department_Id" />
+            </Principal>
+            <Dependent Role="DEPARTMENT_OPTION">
+              <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_SEX">
+          <End Role="SEX" Type="Self.SEX" Multiplicity="0..1" />
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEX">
+              <PropertyRef Name="Sex_Id" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="Sex_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Department_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_DEPARTMENT_OPTION">
+          <End Role="DEPARTMENT_OPTION" Type="Self.DEPARTMENT_OPTION" Multiplicity="0..1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT_OPTION">
+              <PropertyRef Name="Department_Option_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Department_Option_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_LEVEL">
+          <End Role="LEVEL" Type="Self.LEVEL" Multiplicity="0..1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="Level_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_PROGRAMME">
+          <End Role="PROGRAMME" Type="Self.PROGRAMME" Multiplicity="0..1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROGRAMME">
+              <PropertyRef Name="Programme_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Programme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_SESSION">
+          <End Role="SESSION" Type="Self.SESSION" Multiplicity="1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SESSION">
+              <PropertyRef Name="Session_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Session_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="STUDENT_LEVEL" Type="Self.STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_SCHOOL">
+          <End Role="SCHOOL" Type="Self.SCHOOL" Multiplicity="0..1" />
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCHOOL">
+              <PropertyRef Name="School_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="School_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_STUDENT_CATEGORY">
+          <End Role="STUDENT_CATEGORY" Type="Self.STUDENT_CATEGORY" Multiplicity="0..1" />
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_CATEGORY">
+              <PropertyRef Name="Student_Category_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="Student_Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_SECURITY_QUESTION">
+          <End Role="SECURITY_QUESTION" Type="Self.SECURITY_QUESTION" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECURITY_QUESTION">
+              <PropertyRef Name="Security_Question_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Security_Question_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="School_SupportModelStoreContainer">
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENT_OPTION" EntityType="Self.DEPARTMENT_OPTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACULTY" EntityType="Self.FACULTY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LEVEL" EntityType="Self.LEVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROGRAMME" EntityType="Self.PROGRAMME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SCHOOL" EntityType="Self.SCHOOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECURITY_QUESTION" EntityType="Self.SECURITY_QUESTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SESSION" EntityType="Self.SESSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEX" EntityType="Self.SEX" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT" EntityType="Self.STUDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT_CATEGORY" EntityType="Self.STUDENT_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT_LEVEL" EntityType="Self.STUDENT_LEVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DEPARTMENT_FACULTY" Association="Self.FK_DEPARTMENT_FACULTY">
+            <End Role="FACULTY" EntitySet="FACULTY" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTMENT_OPTION_DEPARTMENT" Association="Self.FK_DEPARTMENT_OPTION_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="DEPARTMENT_OPTION" EntitySet="DEPARTMENT_OPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_SEX" Association="Self.FK_PERSON_SEX">
+            <End Role="SEX" EntitySet="SEX" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_DEPARTMENT" Association="Self.FK_STUDENT_LEVEL_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_DEPARTMENT_OPTION" Association="Self.FK_STUDENT_LEVEL_DEPARTMENT_OPTION">
+            <End Role="DEPARTMENT_OPTION" EntitySet="DEPARTMENT_OPTION" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_LEVEL" Association="Self.FK_STUDENT_LEVEL_LEVEL">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_PROGRAMME" Association="Self.FK_STUDENT_LEVEL_PROGRAMME">
+            <End Role="PROGRAMME" EntitySet="PROGRAMME" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_SESSION" Association="Self.FK_STUDENT_LEVEL_SESSION">
+            <End Role="SESSION" EntitySet="SESSION" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_STUDENT" Association="Self.FK_STUDENT_LEVEL_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_PERSON" Association="Self.FK_STUDENT_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_SCHOOL" Association="Self.FK_STUDENT_SCHOOL">
+            <End Role="SCHOOL" EntitySet="SCHOOL" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_STUDENT_CATEGORY" Association="Self.FK_STUDENT_STUDENT_CATEGORY">
+            <End Role="STUDENT_CATEGORY" EntitySet="STUDENT_CATEGORY" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_STUDENT" Association="Self.FK_TICKET_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_PERSON" Association="Self.FK_USER_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_SECURITY_QUESTION" Association="Self.FK_USER_SECURITY_QUESTION">
+            <End Role="SECURITY_QUESTION" EntitySet="SECURITY_QUESTION" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="School_SupportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="Department_Id" />
+          </Key>
+          <Property Name="Department_Id" Type="Int32" Nullable="false" />
+          <Property Name="Department_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department_Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Faculty_Id" Type="Int32" />
+          <NavigationProperty Name="FACULTY" Relationship="Self.FK_DEPARTMENT_FACULTY" FromRole="DEPARTMENT" ToRole="FACULTY" />
+          <NavigationProperty Name="DEPARTMENT_OPTION" Relationship="School_SupportModel.FK_DEPARTMENT_OPTION_DEPARTMENT" FromRole="DEPARTMENT" ToRole="DEPARTMENT_OPTION" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT" FromRole="DEPARTMENT" ToRole="STUDENT_LEVEL" />
+        </EntityType>
+        <EntityType Name="FACULTY">
+          <Key>
+            <PropertyRef Name="Faculty_Id" />
+          </Key>
+          <Property Name="Faculty_Id" Type="Int32" Nullable="false" />
+          <Property Name="Faculty_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Faculty_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_DEPARTMENT_FACULTY" FromRole="FACULTY" ToRole="DEPARTMENT" />
+        </EntityType>
+        <EntityType Name="PROGRAMME">
+          <Key>
+            <PropertyRef Name="Programme_Id" />
+          </Key>
+          <Property Name="Programme_Id" Type="Int32" Nullable="false" />
+          <Property Name="Programme_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Programme_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Programme_Short_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activated" Type="Boolean" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_PROGRAMME" FromRole="PROGRAMME" ToRole="STUDENT_LEVEL" />
+        </EntityType>
+        <EntityType Name="SCHOOL">
+          <Key>
+            <PropertyRef Name="School_Id" />
+          </Key>
+          <Property Name="School_Id" Type="Int32" Nullable="false" />
+          <Property Name="School_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="School_Short_Code" Type="Byte" />
+          <NavigationProperty Name="STUDENT" Relationship="School_SupportModel.FK_STUDENT_SCHOOL" FromRole="SCHOOL" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="SESSION">
+          <Key>
+            <PropertyRef Name="Session_Id" />
+          </Key>
+          <Property Name="Session_Id" Type="Int32" Nullable="false" />
+          <Property Name="Session_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Activated" Type="Boolean" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_SESSION" FromRole="SESSION" ToRole="STUDENT_LEVEL" />
+        </EntityType>
+        <EntityType Name="SEX">
+          <Key>
+            <PropertyRef Name="Sex_Id" />
+          </Key>
+          <Property Name="Sex_Id" Type="Int32" Nullable="false" />
+          <Property Name="Sex_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSON" Relationship="School_SupportModel.FK_PERSON_SEX" FromRole="SEX" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int64" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Person_Id" Type="Int64" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Security_Question_Id" Type="Int32" Nullable="false" />
+          <Property Name="Security_Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role_Id" Type="Int32" Nullable="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ROLE" Relationship="School_SupportModel.FK_USER_ROLE" FromRole="USER" ToRole="ROLE" />
+          <NavigationProperty Name="SECURITY_QUESTION" Relationship="School_SupportModel.FK_USER_SECURITY_QUESTION" FromRole="USER" ToRole="SECURITY_QUESTION" />
+          <NavigationProperty Name="PERSON" Relationship="School_SupportModel.FK_USER_PERSON" FromRole="USER" ToRole="PERSON" />
+        </EntityType>
+        <Association Name="FK_DEPARTMENT_FACULTY">
+          <End Role="FACULTY" Type="Self.FACULTY" Multiplicity="0..1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTY">
+              <PropertyRef Name="Faculty_Id" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Faculty_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="School_SupportEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" />
+          <EntitySet Name="FACULTY" EntityType="Self.FACULTY" />
+          <EntitySet Name="PROGRAMME" EntityType="Self.PROGRAMME" />
+          <EntitySet Name="SCHOOL" EntityType="Self.SCHOOL" />
+          <EntitySet Name="SESSION" EntityType="Self.SESSION" />
+          <EntitySet Name="SEX" EntityType="Self.SEX" />
+          <EntitySet Name="USER" EntityType="Self.USER" />
+          <AssociationSet Name="FK_DEPARTMENT_FACULTY" Association="Self.FK_DEPARTMENT_FACULTY">
+            <End Role="FACULTY" EntitySet="FACULTY" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+          </AssociationSet>
+          <EntitySet Name="ROLE" EntityType="School_SupportModel.ROLE" />
+          <AssociationSet Name="FK_USER_ROLE" Association="School_SupportModel.FK_USER_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <EntitySet Name="STUDENT_CATEGORY" EntityType="School_SupportModel.STUDENT_CATEGORY" />
+          <EntitySet Name="DEPARTMENT_OPTION" EntityType="School_SupportModel.DEPARTMENT_OPTION" />
+          <AssociationSet Name="FK_DEPARTMENT_OPTION_DEPARTMENT" Association="School_SupportModel.FK_DEPARTMENT_OPTION_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="DEPARTMENT_OPTION" EntitySet="DEPARTMENT_OPTION" />
+          </AssociationSet>
+          <EntitySet Name="SECURITY_QUESTION" EntityType="School_SupportModel.SECURITY_QUESTION" />
+          <AssociationSet Name="FK_USER_SECURITY_QUESTION" Association="School_SupportModel.FK_USER_SECURITY_QUESTION">
+            <End Role="SECURITY_QUESTION" EntitySet="SECURITY_QUESTION" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <EntitySet Name="LEVEL" EntityType="School_SupportModel.LEVEL" />
+          <EntitySet Name="PERSON" EntityType="School_SupportModel.PERSON" />
+          <AssociationSet Name="FK_PERSON_SEX" Association="School_SupportModel.FK_PERSON_SEX">
+            <End Role="SEX" EntitySet="SEX" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_PERSON" Association="School_SupportModel.FK_USER_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <EntitySet Name="STUDENT_LEVEL" EntityType="School_SupportModel.STUDENT_LEVEL" />
+          <AssociationSet Name="FK_STUDENT_LEVEL_DEPARTMENT" Association="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_DEPARTMENT_OPTION" Association="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT_OPTION">
+            <End Role="DEPARTMENT_OPTION" EntitySet="DEPARTMENT_OPTION" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_LEVEL" Association="School_SupportModel.FK_STUDENT_LEVEL_LEVEL">
+            <End Role="LEVEL" EntitySet="LEVEL" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_PROGRAMME" Association="School_SupportModel.FK_STUDENT_LEVEL_PROGRAMME">
+            <End Role="PROGRAMME" EntitySet="PROGRAMME" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_SESSION" Association="School_SupportModel.FK_STUDENT_LEVEL_SESSION">
+            <End Role="SESSION" EntitySet="SESSION" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <EntitySet Name="STUDENT" EntityType="School_SupportModel.STUDENT" />
+          <AssociationSet Name="FK_STUDENT_PERSON" Association="School_SupportModel.FK_STUDENT_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_SCHOOL" Association="School_SupportModel.FK_STUDENT_SCHOOL">
+            <End Role="SCHOOL" EntitySet="SCHOOL" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_LEVEL_STUDENT" Association="School_SupportModel.FK_STUDENT_LEVEL_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="STUDENT_LEVEL" EntitySet="STUDENT_LEVEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_STUDENT_CATEGORY" Association="School_SupportModel.FK_STUDENT_STUDENT_CATEGORY">
+            <End Role="STUDENT_CATEGORY" EntitySet="STUDENT_CATEGORY" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <EntitySet Name="TICKET" EntityType="School_SupportModel.TICKET" />
+          <AssociationSet Name="FK_TICKET_STUDENT" Association="School_SupportModel.FK_TICKET_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="Role_Id" />
+          </Key>
+          <Property Name="Role_Id" Type="Int32" Nullable="false" />
+          <Property Name="Role_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USER" Relationship="School_SupportModel.FK_USER_ROLE" FromRole="ROLE" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_USER_ROLE">
+          <End Type="School_SupportModel.ROLE" Role="ROLE" Multiplicity="1" />
+          <End Type="School_SupportModel.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="Role_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STUDENT_CATEGORY">
+          <Key>
+            <PropertyRef Name="Student_Category_Id" />
+          </Key>
+          <Property Name="Student_Category_Id" Type="Int32" Nullable="false" />
+          <Property Name="Student_Category_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Category_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STUDENT" Relationship="School_SupportModel.FK_STUDENT_STUDENT_CATEGORY" FromRole="STUDENT_CATEGORY" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT_OPTION">
+          <Key>
+            <PropertyRef Name="Department_Option_Id" />
+          </Key>
+          <Property Name="Department_Option_Id" Type="Int32" Nullable="false" />
+          <Property Name="Department_Id" Type="Int32" Nullable="false" />
+          <Property Name="Department_Otion_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activated" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="School_SupportModel.FK_DEPARTMENT_OPTION_DEPARTMENT" FromRole="DEPARTMENT_OPTION" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT_OPTION" FromRole="DEPARTMENT_OPTION" ToRole="STUDENT_LEVEL" />
+        </EntityType>
+        <Association Name="FK_DEPARTMENT_OPTION_DEPARTMENT">
+          <End Type="School_SupportModel.DEPARTMENT" Role="DEPARTMENT" Multiplicity="1" />
+          <End Type="School_SupportModel.DEPARTMENT_OPTION" Role="DEPARTMENT_OPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Department_Id" />
+            </Principal>
+            <Dependent Role="DEPARTMENT_OPTION">
+              <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SECURITY_QUESTION">
+          <Key>
+            <PropertyRef Name="Security_Question_Id" />
+          </Key>
+          <Property Name="Security_Question_Id" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USER" Relationship="School_SupportModel.FK_USER_SECURITY_QUESTION" FromRole="SECURITY_QUESTION" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_USER_SECURITY_QUESTION">
+          <End Type="School_SupportModel.SECURITY_QUESTION" Role="SECURITY_QUESTION" Multiplicity="1" />
+          <End Type="School_SupportModel.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SECURITY_QUESTION">
+              <PropertyRef Name="Security_Question_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Security_Question_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LEVEL">
+          <Key>
+            <PropertyRef Name="Level_Id" />
+          </Key>
+          <Property Name="Level_Id" Type="Int32" Nullable="false" />
+          <Property Name="Level_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Level_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_LEVEL" FromRole="LEVEL" ToRole="STUDENT_LEVEL" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Other_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex_Id" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile_Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SEX" Relationship="School_SupportModel.FK_PERSON_SEX" FromRole="PERSON" ToRole="SEX" />
+          <NavigationProperty Name="USER" Relationship="School_SupportModel.FK_USER_PERSON" FromRole="PERSON" ToRole="USER" />
+          <NavigationProperty Name="STUDENT" Relationship="School_SupportModel.FK_STUDENT_PERSON" FromRole="PERSON" ToRole="STUDENT" />
+        </EntityType>
+        <Association Name="FK_PERSON_SEX">
+          <End Type="School_SupportModel.SEX" Role="SEX" Multiplicity="0..1" />
+          <End Type="School_SupportModel.PERSON" Role="PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEX">
+              <PropertyRef Name="Sex_Id" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="Sex_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_PERSON">
+          <End Type="School_SupportModel.PERSON" Role="PERSON" Multiplicity="1" />
+          <End Type="School_SupportModel.USER" Role="USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STUDENT_LEVEL">
+          <Key>
+            <PropertyRef Name="Student_Level_Id" />
+          </Key>
+          <Property Name="Student_Level_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person_Id" Type="Int64" Nullable="false" />
+          <Property Name="Level_Id" Type="Int32" />
+          <Property Name="Programme_Id" Type="Int32" />
+          <Property Name="Department_Id" Type="Int32" Nullable="false" />
+          <Property Name="Department_Option_Id" Type="Int32" />
+          <Property Name="Session_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT" FromRole="STUDENT_LEVEL" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="DEPARTMENT_OPTION" Relationship="School_SupportModel.FK_STUDENT_LEVEL_DEPARTMENT_OPTION" FromRole="STUDENT_LEVEL" ToRole="DEPARTMENT_OPTION" />
+          <NavigationProperty Name="LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_LEVEL" FromRole="STUDENT_LEVEL" ToRole="LEVEL" />
+          <NavigationProperty Name="PROGRAMME" Relationship="School_SupportModel.FK_STUDENT_LEVEL_PROGRAMME" FromRole="STUDENT_LEVEL" ToRole="PROGRAMME" />
+          <NavigationProperty Name="SESSION" Relationship="School_SupportModel.FK_STUDENT_LEVEL_SESSION" FromRole="STUDENT_LEVEL" ToRole="SESSION" />
+          <NavigationProperty Name="STUDENT" Relationship="School_SupportModel.FK_STUDENT_LEVEL_STUDENT" FromRole="STUDENT_LEVEL" ToRole="STUDENT" />
+        </EntityType>
+        <Association Name="FK_STUDENT_LEVEL_DEPARTMENT">
+          <End Type="School_SupportModel.DEPARTMENT" Role="DEPARTMENT" Multiplicity="1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Department_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Department_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_DEPARTMENT_OPTION">
+          <End Type="School_SupportModel.DEPARTMENT_OPTION" Role="DEPARTMENT_OPTION" Multiplicity="0..1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT_OPTION">
+              <PropertyRef Name="Department_Option_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Department_Option_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_LEVEL">
+          <End Type="School_SupportModel.LEVEL" Role="LEVEL" Multiplicity="0..1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LEVEL">
+              <PropertyRef Name="Level_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_PROGRAMME">
+          <End Type="School_SupportModel.PROGRAMME" Role="PROGRAMME" Multiplicity="0..1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROGRAMME">
+              <PropertyRef Name="Programme_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Programme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_SESSION">
+          <End Type="School_SupportModel.SESSION" Role="SESSION" Multiplicity="1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SESSION">
+              <PropertyRef Name="Session_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Session_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="Int64" Nullable="false" />
+          <Property Name="Application_Form_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Number" Type="Int64" />
+          <Property Name="Matric_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="School_Contact_Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Category_Id" Type="Int32" />
+          <Property Name="School_Id" Type="Int32" />
+          <NavigationProperty Name="PERSON" Relationship="School_SupportModel.FK_STUDENT_PERSON" FromRole="STUDENT" ToRole="PERSON" />
+          <NavigationProperty Name="SCHOOL" Relationship="School_SupportModel.FK_STUDENT_SCHOOL" FromRole="STUDENT" ToRole="SCHOOL" />
+          <NavigationProperty Name="STUDENT_LEVEL" Relationship="School_SupportModel.FK_STUDENT_LEVEL_STUDENT" FromRole="STUDENT" ToRole="STUDENT_LEVEL" />
+          <NavigationProperty Name="STUDENT_CATEGORY" Relationship="School_SupportModel.FK_STUDENT_STUDENT_CATEGORY" FromRole="STUDENT" ToRole="STUDENT_CATEGORY" />
+          <NavigationProperty Name="TICKET" Relationship="School_SupportModel.FK_TICKET_STUDENT" FromRole="STUDENT" ToRole="TICKET" />
+        </EntityType>
+        <Association Name="FK_STUDENT_PERSON">
+          <End Type="School_SupportModel.PERSON" Role="PERSON" Multiplicity="1" />
+          <End Type="School_SupportModel.STUDENT" Role="STUDENT" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_SCHOOL">
+          <End Type="School_SupportModel.SCHOOL" Role="SCHOOL" Multiplicity="0..1" />
+          <End Type="School_SupportModel.STUDENT" Role="STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCHOOL">
+              <PropertyRef Name="School_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="School_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_LEVEL_STUDENT">
+          <End Type="School_SupportModel.STUDENT" Role="STUDENT" Multiplicity="1" />
+          <End Type="School_SupportModel.STUDENT_LEVEL" Role="STUDENT_LEVEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="STUDENT_LEVEL">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_STUDENT_CATEGORY">
+          <End Type="School_SupportModel.STUDENT_CATEGORY" Role="STUDENT_CATEGORY" Multiplicity="0..1" />
+          <End Type="School_SupportModel.STUDENT" Role="STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT_CATEGORY">
+              <PropertyRef Name="Student_Category_Id" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="Student_Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="Ticket_Id" />
+          </Key>
+          <Property Name="Ticket_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ticket_Serial_Number" Type="Int32" />
+          <Property Name="Ticket_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Person_Id" Type="Int64" Nullable="false" />
+          <Property Name="Complaint" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reply" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Submitted" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date_Replied" Type="DateTime" Precision="0" />
+          <Property Name="Activated" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="STUDENT" Relationship="School_SupportModel.FK_TICKET_STUDENT" FromRole="TICKET" ToRole="STUDENT" />
+        </EntityType>
+        <Association Name="FK_TICKET_STUDENT">
+          <End Type="School_SupportModel.STUDENT" Role="STUDENT" Multiplicity="1" />
+          <End Type="School_SupportModel.TICKET" Role="TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="School_SupportModelStoreContainer" CdmEntityContainer="School_SupportEntities">
+          <EntitySetMapping Name="DEPARTMENT">
+            <EntityTypeMapping TypeName="School_SupportModel.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENT">
+                <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Department_Code" ColumnName="Department_Code" />
+                <ScalarProperty Name="Faculty_Id" ColumnName="Faculty_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACULTY">
+            <EntityTypeMapping TypeName="School_SupportModel.FACULTY">
+              <MappingFragment StoreEntitySet="FACULTY">
+                <ScalarProperty Name="Faculty_Id" ColumnName="Faculty_Id" />
+                <ScalarProperty Name="Faculty_Name" ColumnName="Faculty_Name" />
+                <ScalarProperty Name="Faculty_Description" ColumnName="Faculty_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROGRAMME">
+            <EntityTypeMapping TypeName="School_SupportModel.PROGRAMME">
+              <MappingFragment StoreEntitySet="PROGRAMME">
+                <ScalarProperty Name="Programme_Id" ColumnName="Programme_Id" />
+                <ScalarProperty Name="Programme_Name" ColumnName="Programme_Name" />
+                <ScalarProperty Name="Programme_Description" ColumnName="Programme_Description" />
+                <ScalarProperty Name="Programme_Short_Name" ColumnName="Programme_Short_Name" />
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCHOOL">
+            <EntityTypeMapping TypeName="School_SupportModel.SCHOOL">
+              <MappingFragment StoreEntitySet="SCHOOL">
+                <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+                <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+                <ScalarProperty Name="School_Short_Code" ColumnName="School_Short_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SESSION">
+            <EntityTypeMapping TypeName="School_SupportModel.SESSION">
+              <MappingFragment StoreEntitySet="SESSION">
+                <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+                <ScalarProperty Name="Session_Name" ColumnName="Session_Name" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEX">
+            <EntityTypeMapping TypeName="School_SupportModel.SEX">
+              <MappingFragment StoreEntitySet="SEX">
+                <ScalarProperty Name="Sex_Id" ColumnName="Sex_Id" />
+                <ScalarProperty Name="Sex_Name" ColumnName="Sex_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="School_SupportModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Security_Question_Id" ColumnName="Security_Question_Id" />
+                <ScalarProperty Name="Security_Answer" ColumnName="Security_Answer" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLE">
+            <EntityTypeMapping TypeName="School_SupportModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENT_CATEGORY">
+            <EntityTypeMapping TypeName="School_SupportModel.STUDENT_CATEGORY">
+              <MappingFragment StoreEntitySet="STUDENT_CATEGORY">
+                <ScalarProperty Name="Student_Category_Description" ColumnName="Student_Category_Description" />
+                <ScalarProperty Name="Student_Category_Name" ColumnName="Student_Category_Name" />
+                <ScalarProperty Name="Student_Category_Id" ColumnName="Student_Category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENT_OPTION">
+            <EntityTypeMapping TypeName="School_SupportModel.DEPARTMENT_OPTION">
+              <MappingFragment StoreEntitySet="DEPARTMENT_OPTION">
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="Department_Otion_Name" ColumnName="Department_Otion_Name" />
+                <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+                <ScalarProperty Name="Department_Option_Id" ColumnName="Department_Option_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SECURITY_QUESTION">
+            <EntityTypeMapping TypeName="School_SupportModel.SECURITY_QUESTION">
+              <MappingFragment StoreEntitySet="SECURITY_QUESTION">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Security_Question_Id" ColumnName="Security_Question_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LEVEL">
+            <EntityTypeMapping TypeName="School_SupportModel.LEVEL">
+              <MappingFragment StoreEntitySet="LEVEL">
+                <ScalarProperty Name="Level_Description" ColumnName="Level_Description" />
+                <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+                <ScalarProperty Name="Level_Id" ColumnName="Level_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON">
+            <EntityTypeMapping TypeName="School_SupportModel.PERSON">
+              <MappingFragment StoreEntitySet="PERSON">
+                <ScalarProperty Name="Mobile_Phone" ColumnName="Mobile_Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sex_Id" ColumnName="Sex_Id" />
+                <ScalarProperty Name="Other_Name" ColumnName="Other_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENT_LEVEL">
+            <EntityTypeMapping TypeName="School_SupportModel.STUDENT_LEVEL">
+              <MappingFragment StoreEntitySet="STUDENT_LEVEL">
+                <ScalarProperty Name="Session_Id" ColumnName="Session_Id" />
+                <ScalarProperty Name="Department_Option_Id" ColumnName="Department_Option_Id" />
+                <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+                <ScalarProperty Name="Programme_Id" ColumnName="Programme_Id" />
+                <ScalarProperty Name="Level_Id" ColumnName="Level_Id" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="Student_Level_Id" ColumnName="Student_Level_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENT">
+            <EntityTypeMapping TypeName="School_SupportModel.STUDENT">
+              <MappingFragment StoreEntitySet="STUDENT">
+                <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+                <ScalarProperty Name="Student_Category_Id" ColumnName="Student_Category_Id" />
+                <ScalarProperty Name="School_Contact_Address" ColumnName="School_Contact_Address" />
+                <ScalarProperty Name="Matric_Number" ColumnName="Matric_Number" />
+                <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+                <ScalarProperty Name="Application_Form_Number" ColumnName="Application_Form_Number" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKET">
+            <EntityTypeMapping TypeName="School_SupportModel.TICKET">
+              <MappingFragment StoreEntitySet="TICKET">
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="Date_Replied" ColumnName="Date_Replied" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Reply" ColumnName="Reply" />
+                <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="Ticket_Number" ColumnName="Ticket_Number" />
+                <ScalarProperty Name="Ticket_Serial_Number" ColumnName="Ticket_Serial_Number" />
+                <ScalarProperty Name="Ticket_Id" ColumnName="Ticket_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

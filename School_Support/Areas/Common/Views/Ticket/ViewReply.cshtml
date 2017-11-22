@@ -1,0 +1,83 @@
+﻿@model School_Support.Areas.Common.ViewModels.TicketViewModel
+
+@{
+    ViewBag.Title = "ViewReply";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
+<center>
+    <h2>VIEW YOUR REPLY</h2>
+</center>
+@using (Html.BeginForm("ViewReply", "Ticket", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <br />
+        <center>
+            <h4>ENTER YOUR TICKET NUMBER HERE</h4>
+        </center>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Ticket.TicketNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-2">
+                                @Html.EditorFor(model => model.Ticket.TicketNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Ticket.TicketNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+    @if (Model != null)
+{
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div style="font-size: large">Ticket Details</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="col-md-12">
+
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal">
+                                <dt>Ticket Number: </dt>
+                                <dd>@Model.Ticket.TicketNumber</dd>
+
+                                <dt>Your Complain: </dt>
+                                <dd>@Model.Ticket.Complain</dd>
+
+
+                                @if (Model.Ticket.Reply != null)
+                            {
+                                    <dt>Reply:</dt>
+                                    <dd>@Model.Ticket.Reply</dd>
+                            }
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+
